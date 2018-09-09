@@ -30,6 +30,7 @@ services:
       - 433:433
     volumes:
       - ./nginx/conf.d:/etc/nginx/conf.d
+      - ./nginx/web:/usr/share/nginx/html/web
     links:
       - api
     
