@@ -20,7 +20,7 @@ DOMAIN = {
             'field': 'name'
         },
         # most global settings can be overridden at resource level
-        'resource_methods': ['GET', 'POST'],
+        'resource_methods': ['GET', 'POST', 'DELETE'],
         'schema': {
             'name': {
                 'type': 'string',
@@ -33,11 +33,20 @@ DOMAIN = {
                 'maxlength': 200,
             },
             'loc':{
-                'type': 'Point'
+                'type': 'dict',
+                'schema': {
+                    'type': { 'type':'string'},
+                    'coordinates': {
+                        'type': 'list'
+                    }
+                }
             }
         }
     }
 }
+
+X_DOMAINS = '*'
+X_HEADERS = ['Content-Type', 'Accept', 'If-Match', 'Access-Control-Allow-Origin', 'Authorization']
 
 #Mongo setup
 MONGO_HOST = 'mongo'
